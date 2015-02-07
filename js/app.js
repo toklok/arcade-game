@@ -1,5 +1,5 @@
-var yAxis = [60, 140, 226, 310, 410];
-var xAxis = [0, 101, 202, 303, 404, 505];
+var yAxis = [60, 140, 226, 310, 410, 500];
+var xAxis = [0, 101, 202, 303, 404, 500];
 
 // Enemies our player must avoid
 var Enemy = function () {
@@ -43,6 +43,12 @@ var Player = function () {
 Player.prototype.update = function (dt) {
   this.x * dt;
   this.y * dt;
+  
+  if (this.y === -25) {
+    spawnPlayer();
+    allEnemies = [];
+    allEnemies = [enemy, enemy, enemy]
+  }
 };
 
 Player.prototype.render = function () {
@@ -54,7 +60,7 @@ Player.prototype.handleInput = function (direction) {
     this.x -= 101;
   } else if (direction === 'right' && this.x < 400) {
     this.x += 101;
-  } else if (direction === 'up' && this.y > 100) {
+  } else if (direction === 'up' && this.y > -100) {
     this.y -= 83;
   } else if (direction === 'down' && this.y < 350) {
     this.y += 83;
@@ -62,8 +68,7 @@ Player.prototype.handleInput = function (direction) {
 };
 
 var enemy = new Enemy();
-var allEnemies = [enemy];
-
+var allEnemies = [enemy, enemy, enemy]
 
 var killEnemy = function (enemyToKill) {
 
