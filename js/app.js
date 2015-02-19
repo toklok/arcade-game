@@ -1,5 +1,10 @@
+
+// Array to keep bugs in check
+
 var yAxis = [60, 140, 226, 310, 410, 500];
-var xAxis = [0, 101, 202, 303, 404, 500];
+
+
+
 
 // Enemies our player must avoid
 var Enemy = function () {
@@ -8,7 +13,7 @@ var Enemy = function () {
   // The image/sprite for our enemies, this uses
   // a helper we've provided to easily load images
   this.sprite = 'images/enemy-bug.png';
-  this.x = -100;
+  this.x = -100;  // Start -100 to not show current bug.
   this.y = yAxis[Math.floor(Math.random() * 3)];
   this.speed = Math.floor(Math.random() * 5 + 3);
 };
@@ -20,6 +25,8 @@ Enemy.prototype.update = function (dt) {
   // which will ensure the game runs at the same speed for
   // all computers.
   this.x += 70 * this.speed * dt;
+
+  //When Enemy is greater than 500 it kills the current instance and spawns a new one.
 
   if (this.x > 530) {
 
@@ -43,7 +50,9 @@ var Player = function () {
 Player.prototype.update = function (dt) {
   this.x * dt;
   this.y * dt;
-  
+
+  //If the player position y is in the water, you win!  and it resets the game and creates the enemies.
+
   if (this.y === -25) {
     spawnPlayer();
     allEnemies = [];
@@ -56,6 +65,9 @@ Player.prototype.render = function () {
 };
 
 Player.prototype.handleInput = function (direction) {
+
+  //Basic handling for the keyboard input
+
   if (direction === 'left' && this.x > 0) {
     this.x -= 101;
   } else if (direction === 'right' && this.x < 400) {

@@ -15,7 +15,7 @@
  */
 
 var Engine = (function(global) {
-  
+
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
@@ -29,11 +29,13 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
-  
+
 function checkCollisions() {
-  
+
+  //function to check if enemies collide, Piazza helped out in this gem.
+
  return allEnemies.forEach(function(enemy) {
-    
+
    if (((enemy.x - player.x) < 80) && ((player.x - enemy.x) < 80) && ((player.y - enemy.y) < 80) && ((enemy.y - player.y) < 80)) {
    killEnemy();
    spawnPlayer();

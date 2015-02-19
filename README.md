@@ -1,6 +1,6 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
+You start the game by going into your browser of choice and directing to the folders index.html.
 
-for self-checking their submission.
+You will see a little man in the center of the screen and the goal is to swim away from the bugs without touching them nasty creatures!
